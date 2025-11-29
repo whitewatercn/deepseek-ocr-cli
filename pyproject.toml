@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepseek-ocr"
+version = "0.1.2"
+description = "ocr识别命令行工具"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+    "requests>=2.32.5",
+]
+
+[project.scripts]
+dsocr = "dsocr.main:main"
+
+[tool.setuptools.package-dir]
+dsocr = "dsocr_core/dsocr"
+
+[tool.setuptools.packages.find]
+where = ["dsocr_core"]
+include = ["dsocr*"]
+
+
+#备注：以下代码为修改至清华源下载pip包，如果需要可以启用
+# [[index]]
+# url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"  
+# default = true
